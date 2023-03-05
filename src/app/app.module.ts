@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JsonEditorComponent } from './components/json-editor/json-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JsonEditorComponent
   ],
   imports: [
     BrowserModule,

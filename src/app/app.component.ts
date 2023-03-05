@@ -107,6 +107,10 @@ export class AppComponent {
     this.interfaces = JsonReader.convert(data);
   }
 
+  onError(data: string): void {
+    this.interfaces = data;
+  }
+
   getData(): string {
     return JSON.stringify(this.data);
   }

@@ -11,6 +11,8 @@ export class JsonEditorComponent implements AfterViewInit {
 
   @Output() convert: EventEmitter<Object> = new EventEmitter<Object>();
 
+  @Output() error: EventEmitter<string> = new EventEmitter<string>();
+
   @ViewChild('lineCounter') lineCounter? : ElementRef;
 
   @ViewChild('codeEditor') codeEditor? : ElementRef;
@@ -55,6 +57,11 @@ export class JsonEditorComponent implements AfterViewInit {
   }
 
   onChange(event: any): void {
-    this.convert.emit(JSON.parse(event.target.value));
+    try {
+      this.convert.emit(JSON.parse(event.target.value)); 
+    }
+    catch(error: any) {
+      this.error.emit(error.message); 
+    }
   } 
 }

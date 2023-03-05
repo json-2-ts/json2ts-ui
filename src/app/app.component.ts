@@ -100,12 +100,14 @@ export class AppComponent {
   }
 
   constructor() {
-    this.interfaces = JsonReader.convert(this.data);
+    this.onConvert(this.data)
   }
 
-  onConvert(data: any): void {
-    console.log(data)
+  onConvert(data: Object): void {
     this.interfaces = JsonReader.convert(data);
-    console.log(this.interfaces)
+  }
+
+  getData(): string {
+    return JSON.stringify(this.data);
   }
 }

@@ -7,7 +7,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Outp
 })
 export class JsonEditorComponent implements AfterViewInit {
 
-  @Input() data!: Object | string;
+  @Input() data: string = "";
 
   @Output() convert: EventEmitter<Object> = new EventEmitter<Object>();
 
@@ -15,20 +15,9 @@ export class JsonEditorComponent implements AfterViewInit {
 
   @ViewChild('codeEditor') codeEditor? : ElementRef;
 
-  constructor() { }
-
   ngAfterViewInit(): void {
     var codeEditor = this.codeEditor!.nativeElement as HTMLTextAreaElement;
     var lineCounter = this.lineCounter!.nativeElement as HTMLTextAreaElement;
-
-    if(this.data !== undefined){
-      if(typeof this.data === 'string'){
-        codeEditor.value = this.data;
-      }
-      else{
-        codeEditor.value = JSON.stringify(this.data);
-      }
-    }
 
     codeEditor.addEventListener('scroll', () => {
       lineCounter.scrollTop = codeEditor.scrollTop;

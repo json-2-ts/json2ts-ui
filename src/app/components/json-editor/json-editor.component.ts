@@ -1,17 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'json-editor',
   templateUrl: './json-editor.component.html',
   styleUrls: ['./json-editor.component.scss']
 })
-export class JsonEditorComponent implements OnInit {
+export class JsonEditorComponent implements AfterViewInit {
+
+  @Input() data!: Object | string;
+
+  @Output() convert: EventEmitter<Object> = new EventEmitter<Object>();
+
+  @ViewChild('lineCounter') lineCounter? : ElementRef;
+
+  @ViewChild('codeEditor') codeEditor? : ElementRef;
 
   constructor() { }
 
-  ngOnInit(): void {
-    var codeEditor = document.getElementById('codeEditor') as HTMLTextAreaElement;
-    var lineCounter = document.getElementById('lineCounter') as HTMLTextAreaElement;
+  ngAfterViewInit(): void {
+    var codeEditor = this.codeEditor!.nativeElement as HTMLTextAreaElement;
+    var lineCounter = this.lineCounter!.nativeElement as HTMLTextAreaElement;
+
+    if(this.data !== undefined){
+      if(typeof this.data === 'string'){
+        codeEditor.value = this.data;
+      }
+      else{
+        codeEditor.value = JSON.stringify(this.data);
+      }
+    }
 
     codeEditor.addEventListener('scroll', () => {
       lineCounter.scrollTop = codeEditor.scrollTop;
@@ -47,4 +64,8 @@ export class JsonEditorComponent implements OnInit {
         line_counter();
     });
   }
+
+  onChange(event: any): void {
+    this.convert.emit(JSON.parse(event.target.value));
+  } 
 }

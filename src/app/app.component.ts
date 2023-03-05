@@ -7,8 +7,6 @@ import { JsonReader } from "@dellarosamarco/json-2-ts";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'json-2-ts-ui';
-
   interfaces = ''
 
   data = {
@@ -103,5 +101,11 @@ export class AppComponent {
 
   constructor() {
     this.interfaces = JsonReader.convert(this.data);
+  }
+
+  onConvert(data: any): void {
+    console.log(data)
+    this.interfaces = JsonReader.convert(data);
+    console.log(this.interfaces)
   }
 }

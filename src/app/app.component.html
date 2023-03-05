@@ -1,2 +1,4 @@
-<!-- {{ interfaces }} -->
-<json-editor></json-editor>
+<div class="editors-container">
+    <json-editor [data]="data" (convert)="onConvert($event);"></json-editor>
+    <json-editor [data]="interfaces"></json-editor>
+</div>

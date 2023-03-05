@@ -1,0 +1,11 @@
+:host{
+    width: 100%;
+}
+
+.editors-container {
+    display: flex;
+    width: 100%;
+    gap:1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}

@@ -57,7 +57,11 @@ export class JsonEditorComponent implements AfterViewInit {
       line_counter();
     });
 
+    line_counter();
+    
     this.prettyPrint();
+
+    line_counter();
   }
 
   onChange(event: any): void {

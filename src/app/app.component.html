@@ -1,4 +1,64 @@
-<div class="editors-container">
-    <json-editor [data]="getData()" (convert)="onConvert($event);" (error)="onError($event)"></json-editor>
-    <json-editor [data]="interfaces"></json-editor>
+<navbar></navbar>
+
+<div class="content">
+    <div class="content-section">
+        <div class="content-section__title">
+            <p class="content-section__title-text">Installation</p>
+        </div>
+    </div>
+    <div class="code-viewer">
+        <p class="code"><span class="code-default">npm i --save @dellarosamarco/json-2-ts</span></p>
+    </div>
+
+    <div class="content-section">
+        <div class="content-section__description">
+            <p class="content-section__description-text">Package.json : </p>
+        </div>
+    </div>
+    <div class="code-viewer">
+        <p class="code"><span class="code-string">"devDependencies"</span><span class="code-default"> : {{ "{" }}</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">...</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">"@dellarosamarco/json-2-ts" : </span><span class="code-string">"^1.0.8"</span></p>
+        <p class="code"><span class="code-default">{{ "}" }}</span></p>
+    </div>
+    
+    <div class="content-section">
+        <div class="content-section__title">
+            <p class="content-section__title-text">Usage</p>
+        </div>
+    </div>
+    <div class="code-viewer">
+        <p class="code"><span class="code-default"><span class="code-keyword">import</span> {{ "{" }} <span class="code-value">JsonReader</span> {{ "}" }} <span class="code-keyword">from</span><span class="code-string"> "@dellarosamarco/json-2-ts"</span>;</span></p>
+        <p class="code"><span class="code-default"><span class="code-keyword">import</span><span class="code-value"> * </span><span class="code-keyword">as</span><span class="code-value"> fs </span><span class="code-keyword">from</span><span class="code-string"> "fs"</span>;</span></p>
+        <br>
+        <p class="code"><span class="code-keyword">const </span><span class="code-default">data = {{ "{" }}</span></p>
+        <p class="code">&nbsp; &nbsp; <span class="code-string">"id" <span class="code-default">:</span> "640e2a4f3bb10c4d5924b377"</span><span class="code-default">,</span></p>
+        <p class="code">&nbsp; &nbsp; <span class="code-string">"isActive" <span class="code-default">:</span></span><span class="code-value"> true</span><span class="code-default">,</span></p>
+        <p class="code">&nbsp; &nbsp; <span class="code-string">"tags" <span class="code-default">:</span></span><span class="code-default"> [</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">{{ "{" }}</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; &nbsp; <span class="code-string">"id" <span class="code-default">:</span></span><span class="code-value"> 1</span><span class="code-default">,</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; &nbsp; <span class="code-string">"name" <span class="code-default">:</span> "entertainment"</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">{{ "}," }}</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">{{ "{" }}</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; &nbsp; <span class="code-string">"id" <span class="code-default">:</span></span><span class="code-value"> 2</span><span class="code-default">,</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; &nbsp; <span class="code-string">"name" <span class="code-default">:</span> "simulation"</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">{{ "}" }}</span></p>
+        <p class="code">&nbsp; &nbsp; <span class="code-default"> ],</span></p>
+        <p class="code">&nbsp; &nbsp; <span class="code-default">...</span></p>
+        <p class="code"><span class="code-default">{{ "}" }}</span></p>
+        <br>
+        <p class="code"><span class="code-keyword">const </span><span class="code-default">interfaces = <span class="code-value">JsonReader</span>.</span><span class="code-function">convert(<span class="code-default">data</span>)</span><span class="code-default">;</span></p>
+        <p class="code"><span class="code-comment">// (string) → export interface ...</span></p>
+        <br>
+        <p class="code"><span class="code-default"><span class="code-value">fs</span>.<span class="code-function">writeFile(<span class="code-string">"./types.d.ts"</span><span class="code-default">, interfaces</span>)</span>;</span></p>
+    </div>
+    <div class="content-section">
+        <div class="content-section__title">
+            <p class="content-section__title-text">Live Preview</p>
+        </div>
+    </div>
+    <div class="editors-container">
+        <json-editor [data]="getData()" (convert)="onConvert($event);" (error)="onError($event)"></json-editor>
+        <json-editor [data]="interfaces"></json-editor>
+    </div>
 </div>

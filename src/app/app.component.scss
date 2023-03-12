@@ -2,10 +2,73 @@
     width: 100%;
 }
 
+.content{
+    width: 70%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 2.4rem -0.4rem #9da5ab;
+
+    &-section {
+        padding: 2rem;
+        background-color: white;
+
+        &__title {
+            &-text{
+                margin: 0;
+                color: #5f5f5f;
+                font-size: 1.5rem;
+            }
+        }
+
+        &__description {
+            &-text{
+                margin: 0;
+                color: #5f5f5f;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
 .editors-container {
     display: flex;
     width: 100%;
-    gap:1rem;
-    padding: 1rem;
     box-sizing: border-box;
+}
+
+.code-viewer {
+    background-color: #283646;
+    padding: 2rem;
+}
+
+.code {
+    font-size: 1.1rem;
+    font-weight: 350;
+    font-family: Consolas,Source Code Pro,Courier New;
+    margin: 0;
+
+    &-default {
+        color: #ddd;
+    }
+
+    &-string {
+        color: #ADC480;
+    }
+
+    &-keyword {
+        color: #86b9f5;
+    }
+
+    &-value {
+        color: #ae81ff;
+    }
+
+    &-function{
+        color: #fee937;
+    }
+
+    &-comment {
+        color: #b9b9b9;
+    }
 }

@@ -9,6 +9,8 @@ export class JsonEditorComponent implements AfterViewInit {
 
   @Input() data: string = "";
 
+  @Input() isReadonly = false;
+
   @Output() convert: EventEmitter<Object> = new EventEmitter<Object>();
 
   @Output() error: EventEmitter<string> = new EventEmitter<string>();

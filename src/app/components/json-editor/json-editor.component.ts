@@ -54,8 +54,10 @@ export class JsonEditorComponent implements AfterViewInit {
     }
 
     codeEditor.addEventListener('input', () => {
-        line_counter();
+      line_counter();
     });
+
+    this.prettyPrint();
   }
 
   onChange(event: any): void {
@@ -65,5 +67,14 @@ export class JsonEditorComponent implements AfterViewInit {
     catch(error: any) {
       this.error.emit(error.message); 
     }
+
+    this.prettyPrint();
   } 
+  
+  prettyPrint(): void {
+    var ugly = (this.codeEditor!.nativeElement as HTMLTextAreaElement).value;
+    var obj = JSON.parse(ugly);
+    var pretty = JSON.stringify(obj, undefined, 4);
+    (this.codeEditor!.nativeElement as HTMLTextAreaElement).value = pretty;
+  }
 }

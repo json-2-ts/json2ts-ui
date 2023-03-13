@@ -141,4 +141,8 @@ export class AppComponent {
   getData(): string {
     return JSON.stringify(this.data);
   }
+
+  navigate(url: string): void{
+    window.open(url,'_blank');
+  }
 }

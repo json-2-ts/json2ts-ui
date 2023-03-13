@@ -99,23 +99,32 @@ export class AppComponent {
 //     }
 //   }
 
-    data = {
-        "id" : "640e2a4f3bb10c4d5924b377",
-        "isActive" : true,
-        "tags" : [
-            {
-                "id" : 1,
-                "name" : "entertainment"
-            },
-            {
-                "id" : 2,
-                "name" : "simulation"
-
-            }
+  data = {
+    "id" : "640e2a4f3bb10c4d5924b377",
+    "isActive" : true,
+    "tags" : [
+      {
+        "id" : 1,
+        "name" : "entertainment",
+        "rates" : [
+          {
+            "vote" : 5,
+            "comment" : ""
+          }
         ]
-    }
-
-  
+      },
+      {
+        "id" : 2,
+        "name" : "simulation",
+        "rates" : [
+          {
+            "vote" : 4.5,
+            "comment" : ""
+          }
+        ]
+      }
+    ]
+  }
 
   constructor() {
     this.onConvert(this.data)

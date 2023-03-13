@@ -59,6 +59,6 @@
     </div>
     <div class="editors-container">
         <json-editor [data]="getData()" (convert)="onConvert($event);" (error)="onError($event)"></json-editor>
-        <json-editor [data]="interfaces"></json-editor>
+        <json-editor [data]="interfaces" [isReadonly]="true"></json-editor>
     </div>
 </div>

@@ -89,8 +89,6 @@ export class JsonEditorComponent implements AfterViewInit, OnChanges {
     catch(error: any) {
       this.error.emit(error.message); 
     }
-
-    this.prettyPrint();
   } 
   
   prettyPrint(): void {

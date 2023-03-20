@@ -40,7 +40,7 @@
     <div class="code-viewer">
         <p class="code"><span class="code-string">"devDependencies"</span><span class="code-default"> : {{ "{" }}</span></p>
         <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">...</span></p>
-        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">"@dellarosamarco/json-2-ts" : </span><span class="code-string">"^1.0.8"</span></p>
+        <p class="code">&nbsp; &nbsp; &nbsp; <span class="code-default">"@dellarosamarco/json-2-ts" : </span><span class="code-string">"^1.1.4"</span></p>
         <p class="code"><span class="code-default">{{ "}" }}</span></p>
     </div>
     
@@ -83,4 +83,8 @@
         <json-editor [data]="getData()" (convert)="onConvert($event);" (error)="onError($event)"></json-editor>
         <json-editor [data]="interfaces" [isReadonly]="true"></json-editor>
     </div>
+</div>
+
+<div class="footer">
+    <p class="footer-description">Made By <span><a target="_blank" href="https://www.linkedin.com/in/marcodellarosa/">Marco Della Rosa</a></span></p>
 </div>

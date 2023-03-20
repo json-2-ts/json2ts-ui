@@ -1,4 +1,4 @@
 <div class="editor-container">
     <textarea id='lineCounter' #lineCounter wrap='off' readonly>1.</textarea>
-    <textarea [value]="data" (input)="onChange($event)" id='codeEditor' #codeEditor wrap='off' [readonly]="isReadonly"></textarea>
+    <textarea (change)="this.prettyPrint();" [value]="data" (input)="onChange($event)" id='codeEditor' #codeEditor wrap='off' [readonly]="isReadonly"></textarea>
 </div>

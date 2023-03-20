@@ -103,7 +103,6 @@
     width: 70%;
     margin: auto;
     margin-top: 3rem;
-    margin-bottom: 3rem;
     box-shadow: 0 4px 2.4rem -0.4rem #9da5ab;
 
     &-section {
@@ -167,6 +166,17 @@
 
     &-comment {
         color: #b9b9b9;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    &-description {
+
     }
 }
 
